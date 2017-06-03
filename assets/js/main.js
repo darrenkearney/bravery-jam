@@ -48,6 +48,9 @@ window.onload = function () {
         // add physics to the planet
         game.physics.arcade.enable(planet);
 
+        // stop the planet from moving
+        planet.body.immovable = true;
+
         // add player one to the game
         player1 = game.add.sprite(400, 300, 'ship');
         player1.anchor.setTo(0.5);      // anchor player
@@ -85,10 +88,6 @@ window.onload = function () {
         // keep player 2 locked to planet
         player2.x = planet.x;
         player2.y = planet.y;
-
-        // planets x and y velocity to 0
-        planet.body.velocity.x = 0;
-        planet.body.velocity.y = 0;
 
         // rotate the players
         player1.rotation += 0.002;
