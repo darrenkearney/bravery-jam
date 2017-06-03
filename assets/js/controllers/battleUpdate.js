@@ -1,5 +1,5 @@
 function battleUpdate() {
 
-    alert('Battle mode engaged!');
+    //alert('Battle mode engaged!');
     
 }
