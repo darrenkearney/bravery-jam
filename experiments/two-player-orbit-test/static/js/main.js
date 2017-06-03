@@ -43,13 +43,16 @@ function create() {
     player2.pivot.x = -240;         // set the players pivot. (how far from it's position it is)
 
     // sets up game to read key presses
-    //cursors = game.input.keyboard.createCursorKeys();
+    cursors = game.input.keyboard.createCursorKeys();
 
 } // create()
 
 
 // runs every frame
 function update() {
+
+    // check for key presses
+    checkForKeyPress();
 
     // keep player 1 locked to planet
     player1.x = planet.x;
@@ -64,7 +67,22 @@ function update() {
     planet.body.velocity.y = 0;
 
     // rotate the players
-    player1.rotation += 0.02;
-    player2.rotation += 0.02;
+    player1.rotation += 0.002;
+    player2.rotation += 0.002;
 
 } // update()
+
+function checkForKeyPress(){
+
+    if (cursors.up.isDown)
+    {
+        // move the player away from the planet
+        player2.pivot.x -= 0.5;
+    }
+    else if (cursors.down.isDown)
+    {
+        // move the player towards the planet
+        player2.pivot.x += 0.5;
+    }
+
+} // checkForKeyPress()
