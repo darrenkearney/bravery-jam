@@ -1,4 +1,7 @@
 
+//import { Printer } from './Printer';
+declare var Phaser: any;
+
 window.onload = function() {
 
     //  Note that this html file is set to pull down Phaser 2.5.0 from the JS Delivr CDN.
@@ -11,12 +14,20 @@ window.onload = function() {
 
         game.load.image('logo', 'static/images/phaser.png');
 
+        // let p = new Printer();
+
+        // p.doStuff();
+        console.log(";ekwjrbgqueahrgp   ");
+
     }
 
     function create () {
 
         var logo = game.add.sprite(game.world.centerX, game.world.centerY, 'logo');
         logo.anchor.setTo(0.5, 0.5);
+
+        
+
 
     }
 

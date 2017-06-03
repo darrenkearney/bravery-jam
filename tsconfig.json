@@ -1,11 +1,12 @@
 {
-   "compilerOptions": {
-        "target": "ES5",
-        "noImplicitAny": true,
-        "module":"commonjs",
-        "removeComments": true,
-        "preserveConstEnums": true,
-        "out": "static/js/main.js",
-        "sourceMap": true
-    }
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "noImplicitAny": false,
+    "out": "static/js/main.js"
+  }
 }
