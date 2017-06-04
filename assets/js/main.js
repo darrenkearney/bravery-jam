@@ -3,6 +3,9 @@
     // create the game
     var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
+    // controllers
+    var inputController = new InputController();
+
     // variables
 
     var planet;
@@ -24,6 +27,8 @@
 
     // runs when the game starts
     function create() {
+        
+        inputController.init();
 
         createGame(view);
         
