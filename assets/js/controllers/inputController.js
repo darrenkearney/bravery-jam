@@ -22,6 +22,24 @@ function InputController() {
         
     } // init()
 
+    // pass in the player and a string with the sign eg "+" or "-"
+    this.pivotPlayer = function(player, sign){
+
+        if(sign == "+"){ // if positive
+
+            // increase pivot value
+            player.pivot.x += 0.5;
+
+        }
+        else // if negative 
+        {
+            // decrease pivot value
+            player.pivot.x -= 0.5;
+
+        } // if
+
+    } // pivotPlayer()
+
     // initialise the controller
     this.init();
 

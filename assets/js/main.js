@@ -65,43 +65,26 @@ function checkForKeyPress(){
     if (inputController.player1Left.isDown)
     {
         // move the player away from the planet
-        pivotPlayer(player1, "+");
+        inputController.pivotPlayer(player1, "+");
     }
     else if (inputController.player1Right.isDown)
     {
         // move the player towards the planet
-        pivotPlayer(player1, "-");
+        inputController.pivotPlayer(player1, "-");
     }
 
      // check if player two is trying to move
     if (inputController.player2Left.isDown)
     {
         // move the player away from the planet
-        pivotPlayer(player2, "-");
+        inputController.pivotPlayer(player2, "-");
     }
     else if (inputController.player2Right.isDown)
     {
         // move the player towards the planet
-        pivotPlayer(player2, "+");
+        inputController.pivotPlayer(player2, "+");
     }
 
 } // checkForKeyPress()
 
-// pass in the player and a string with the sign eg "+" or "-"
-function pivotPlayer(player, sign){
-
-    if(sign == "+"){ // if positive
-
-        // increase pivot value
-        player.pivot.x += 0.5;
-
-    }
-    else // if negative 
-    {
-        // decrease pivot value
-        player.pivot.x -= 0.5;
-
-    } // if
-
-} // pivotPlayer()
 
