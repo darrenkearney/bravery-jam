@@ -36,8 +36,8 @@ function update() {
     if ( view === 'battle' ) {
 
         // update the battle
-        battleUpdate();
-        
+        battleController.battleUpdate();
+
     } // if
 
 } // update()

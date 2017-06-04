@@ -17,6 +17,9 @@ function createGame( view ) {
     // setup input controller
     inputController = new InputController();
 
+    // setup the battle controller
+    battleController = new BattleController();
+
     // set background colour
     game.stage.backgroundColor = '#001255';
 

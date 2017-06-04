@@ -16,6 +16,9 @@ function Missile(){
         // set the missile sprite
         this.missileSprite = game.add.sprite(400, 300, 'missile');
 
+        // add physics to missile
+        game.physics.arcade.enable(this.missileSprite);
+
     } // init()
 
     // update the missile x and y position

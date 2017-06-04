@@ -31,6 +31,9 @@ function Player(isPlayer1) {
 
         } // if     
 
+        // add physics to player
+        game.physics.arcade.enable(this.playerSprite);
+
     } // init()
 
     // fire a missile, takes list of missiles as args
