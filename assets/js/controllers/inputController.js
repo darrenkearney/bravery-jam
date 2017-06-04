@@ -23,4 +23,7 @@ function InputController() {
         
     } // init()
 
+    // initialise the controller
+    this.init();
+
 } // InputController()

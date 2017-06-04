@@ -1,78 +1,75 @@
 
+// create the game
+var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
-    // create the game
-    var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+// controllers
 
-    // controllers
-    var inputController = new InputController();
 
-    // variables
+// variables
 
-    var planet;
-    var player1;
-    var player2;
-    var ships;
-    var missiles;
-    var cursors;
+var planet;
+var player1;
+var player2;
+var ships;
+var missiles;
+var cursors;
 
-    // Set our starting view
-    var view = 'battle';
+// Set our starting view
+var view = 'battle';
+
+// runs before the game starts
+function preload() {
+
+    preloadAssets(view);
+
+} // preload()
+
+// runs when the game starts
+function create() {
+
+    createGame(view);
     
-    // runs before the game starts
-    function preload() {
+} // create()
 
-        preloadAssets(view);
+// runs every frame
+function update() {
 
-    } // preload()
+    //console.log("update");
 
-    // runs when the game starts
-    function create() {
-        
-        inputController.init();
+    // switch checks view and uses appropriate update
+    if ( view === 'battle' ) {
+        battleUpdate();
+    }
 
-        createGame(view);
-        
-    } // create()
+    // check for key presses
+    checkForKeyPress();
 
-    // runs every frame
-    function update() {
+    // keep player 1 locked to planet
+    player1.x = planet.x;
+    player1.y = planet.y;
 
-        //console.log("update");
+    // keep player 2 locked to planet
+    player2.x = planet.x;
+    player2.y = planet.y;
 
-        // switch checks view and uses appropriate update
-        if ( view === 'battle' ) {
-            battleUpdate();
-        }
+    // rotate the players
+    player1.rotation += 0.002;
+    player2.rotation += 0.002;
 
-        // check for key presses
-        checkForKeyPress();
+} // update()
 
-        // keep player 1 locked to planet
-        player1.x = planet.x;
-        player1.y = planet.y;
+function checkForKeyPress(){
 
-        // keep player 2 locked to planet
-        player2.x = planet.x;
-        player2.y = planet.y;
+    if (cursors.up.isDown)
+    {
+        // move the player away from the planet
+        player2.pivot.x -= 0.5;
+    }
+    else if (cursors.down.isDown)
+    {
+        // move the player towards the planet
+        player2.pivot.x += 0.5;
+    }
 
-        // rotate the players
-        player1.rotation += 0.002;
-        player2.rotation += 0.002;
-
-    } // update()
-
-    function checkForKeyPress(){
-
-        if (cursors.up.isDown)
-        {
-            // move the player away from the planet
-            player2.pivot.x -= 0.5;
-        }
-        else if (cursors.down.isDown)
-        {
-            // move the player towards the planet
-            player2.pivot.x += 0.5;
-        }
-
-    } // checkForKeyPress()
+} // checkForKeyPress()
 
