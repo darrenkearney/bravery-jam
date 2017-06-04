@@ -30,47 +30,30 @@ function BattleController() {
         }); // foreach
 
         // check for collisions
-
-        // check if player 1 is launching a missile
-        if(player1.missileLaunching){
-            
-            // wait for missile to clear ship
-            game.time.events.add(400, () => { player1.missileLaunching = false; }, this, true);
-
-        } else { // if missile is 
-
-            game.physics.arcade.overlap(player1.playerSprite, this.missileGroup, collisionHandler, null, this);
-
-        } // if
-
-        // check if player 2 is launching a missile
-        if(player2.missileLaunching){
-            
-            // wait for missile to clear ship
-            game.time.events.add(400, () => { player2.missileLaunching = false; }, this, true);
-
-        } else { // if missile is 
-
-            game.physics.arcade.overlap(player2.playerSprite, this.missileGroup, collisionHandler, null, this);
-
-        } // if
-        
-        
-        //game.physics.arcade.overlap(player2, this.missileGroup, collisionHandler, null, this);
-
+        game.physics.arcade.overlap(player1.playerSprite, this.missileGroup, collisionHandler, null, this);
+        game.physics.arcade.overlap(player2.playerSprite, this.missileGroup, collisionHandler, null, this);
 
     } // battleUpdate()
 
     // when the player collides with a missile
     function collisionHandler (player, missile) {
 
-        // remove the missile
-        missile.kill();
+        // check that missile is not just fired
+        if(missile.name == ""){ // missile can do damage
 
-        // hurt the player
+            // remove the missile
+            missile.kill();
 
-        console.log("HIT");
+            // hurt the player
 
+
+            console.log("HIT");
+
+        } else {    // otherwise, missile just fired, ignore
+
+            console.log("Just fired!");
+        } // if
+    
     } // collisionHandler()
 
 } // BattleController object

@@ -19,8 +19,13 @@ function Missile(){
 
         // add physics to missile
         game.physics.enable(this.missileSprite, Phaser.Physics.ARCADE);
-
         this.missileSprite.body.collideWorldBounds = true;
+
+        // flag missile as just fired
+        this.missileSprite.name = "JustFired";
+
+        // set timers to clear name
+        game.time.events.add(1000, () => { this.missileSprite.name = ""; }, this, true);
 
     } // init()
 
