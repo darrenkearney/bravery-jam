@@ -34,7 +34,7 @@ function Player(isPlayer1) {
 
         // add physics to player
         game.physics.enable(this.playerSprite, Phaser.Physics.ARCADE);
-        this.playerSprite.body.collideWorldBounds = true;
+        //this.playerSprite.body.collideWorldBounds = true;
 
     } // init()
 
@@ -88,13 +88,13 @@ function Player(isPlayer1) {
     // pivot the player. pass a string with the sign eg "+" or "-"
     this.pivot = function(sign){
 
-        if(sign == "+"){ // if positive
+        if(sign == "+" && this.playerSprite.pivot.x < 280){ // if positive
 
             // increase pivot value
             this.playerSprite.pivot.x += 0.5;
 
         }
-        else // if negative 
+        else if(sign == "-" && this.playerSprite.pivot.x > 100) // if negative 
         {
             // decrease pivot value
             this.playerSprite.pivot.x -= 0.5;
