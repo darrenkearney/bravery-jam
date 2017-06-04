@@ -24,8 +24,15 @@ function Player(isPlayer1) {
         // set the players pivot. (how far from it's position it is)
         this.playerSprite.pivot.x = 240;  
 
-        // check if not player 1
-        if(!isPlayer1){
+        if(isPlayer1){  // if player 1
+
+            // tag as player one
+            this.playerSprite.name = "player1";
+
+        } else { // if player 2
+
+            // tag as player 2
+            this.playerSprite.name = "player2";
 
             // rotate the player by 180 degrees because it's player 2
             this.playerSprite.angle = 180;

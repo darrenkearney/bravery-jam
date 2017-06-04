@@ -47,16 +47,39 @@ function BattleController() {
             // remove the missile
             missile.kill();
 
-            // hurt the player
+            // check which player it is
+            if(player.name == "player1"){
 
+                // hurt player 1
+                this.hurtPlayer(player1);
+
+            } else { // player 2
+
+               // hurt player 2
+               this.hurtPlayer(player2);
+
+            } // if
 
             console.log("HIT");
 
-        } else {    // otherwise, missile just fired, ignore
-
-            console.log("Just fired!");
         } // if
     
     } // collisionHandler()
+
+    // hurts the player and handles game over
+    this.hurtPlayer = function(player){
+
+        // hurt the player
+        player.health--;
+
+        // check if player is dead
+        if(player.health < 1){
+
+            // game over
+            player.playerSprite.kill();
+
+        } // if
+
+    } // hurtPlayer()
 
 } // BattleController object
