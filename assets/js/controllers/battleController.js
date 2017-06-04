@@ -17,6 +17,9 @@ function BattleController() {
         // check for key presses, takes player1 and player2 as args
         inputController.checkForKeyPress(player1, player2);
 
+        // rotate the planet
+        planet.rotate();
+
         // rotate the players (around the planet)
         player1.orbit();
         player2.orbit();

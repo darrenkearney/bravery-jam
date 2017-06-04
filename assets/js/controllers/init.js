@@ -27,14 +27,7 @@ function createGame( view ) {
     game.stage.backgroundColor = '#001255';
 
     // add the planet to the game and anchor it
-    planet = game.add.sprite(game.world.centerX, game.world.centerY, 'planet');
-    planet.anchor.setTo(0.5, 0.5);
-
-    // add physics to the planet
-    game.physics.arcade.enable(planet);
-
-    // stop the planet from moving
-    planet.body.immovable = true;
+    planet = new Planet();
 
     if (view === "battle") {
 
@@ -52,7 +45,7 @@ function createGame( view ) {
         // create missiles list
         missiles = [];
 
-        console.log('Created.');
+        //console.log('Created.');
 
     } // if view === battle
 }
