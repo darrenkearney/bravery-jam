@@ -31,24 +31,24 @@ function InputController() {
         if (this.player1Out.isDown)
         {
             // move the player away from the planet
-            this.pivotPlayer(player1, "+");
+            this.pivotPlayer(player1.playerSprite, "+");
         }
         else if (this.player1In.isDown)
         {
             // move the player towards the planet
-            this.pivotPlayer(player1, "-");
+            this.pivotPlayer(player1.playerSprite, "-");
         }
 
         // check if player two is trying to move
         if (this.player2Out.isDown)
         {
             // move the player away from the planet
-            this.pivotPlayer(player2, "+");
+            this.pivotPlayer(player2.playerSprite, "+");
         }
         else if (this.player2In.isDown)
         {
             // move the player towards the planet
-            this.pivotPlayer(player2, "-");
+            this.pivotPlayer(player2.playerSprite, "-");
         }
 
     } // checkForKeyPress()

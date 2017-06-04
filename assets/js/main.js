@@ -38,15 +38,13 @@ function update() {
     }
 
     // keep player 1 locked to planet
-    player1.x = planet.x;
-    player1.y = planet.y;
+    player1.updatePosition(planet.x, planet.y);
 
     // keep player 2 locked to planet
-    player2.x = planet.x;
-    player2.y = planet.y;
+    player1.updatePosition(planet.x, planet.y);
 
     // rotate the players (around the planet)
-    player1.rotation += 0.002;
-    player2.rotation += 0.002;
+    player1.orbit();
+    player2.orbit();
 
 } // update()

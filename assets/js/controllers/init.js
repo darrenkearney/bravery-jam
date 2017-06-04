@@ -38,15 +38,10 @@ function createGame( view ) {
         //logo.anchor.setTo(0.5, 0.5);
 
         // add player one to the game
-        player1 = game.add.sprite(400, 300, 'ship');
-        player1.anchor.setTo(0.5);      // anchor player
-        player1.pivot.x = 240;          // set the players pivot. (how far from it's position it is)
+        player1 = new Player(true);
 
         // add player two to the game
-        player2 = game.add.sprite(400, 300, 'ship');
-        player2.anchor.setTo(0.5);      // anchor player
-        player2.angle = 180;            // rotate the player
-        player2.pivot.x = 240;          // set the players pivot. (how far from it's position it is)
+        player2 = new Player(false);
 
         console.log('Created.');
 
