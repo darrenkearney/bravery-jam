@@ -8,7 +8,7 @@ var planet;
 var player1;
 var player2;
 var ships;
-var missiles;
+var missiles = [];
 
 // Set our starting view
 var view = 'battle';
@@ -38,13 +38,21 @@ function update() {
     }
 
     // keep player 1 locked to planet
-    player1.updatePosition(planet.x, planet.y);
+    //player1.updatePosition(planet.x, planet.y);
 
     // keep player 2 locked to planet
-    player1.updatePosition(planet.x, planet.y);
+    //player1.updatePosition(planet.x, planet.y);
 
     // rotate the players (around the planet)
     player1.orbit();
     player2.orbit();
+
+    // if missiles is not empty
+    missiles.forEach(function(missile) {
+
+        // make missile orbit
+        missile.orbit();
+
+    }); // foreach
 
 } // update()

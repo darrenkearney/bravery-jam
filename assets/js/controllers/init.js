@@ -43,6 +43,9 @@ function createGame( view ) {
         // add player two to the game
         player2 = new Player(false);
 
+        // create missiles list
+        missiles = [];
+
         console.log('Created.');
 
     } // if view === battle

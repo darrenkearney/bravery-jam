@@ -31,6 +31,23 @@ function Player(isPlayer1) {
 
     } // init()
 
+    // fire a missile, takes list of missiles as args
+    this.fireMissile = function(){
+
+        // create the missile
+        var m = new Missile();
+
+        // set the missiles rotation
+        m.setRotation(this.playerSprite.rotation)
+
+        // set the missiles pivot
+        m.missileSprite.pivot = this.playerSprite.pivot;
+
+        // add missile to the list of missiles
+        missiles.push(m);
+
+    } // fireMissile()
+
     // update the players x and y position
     this.updatePosition = function(x, y){
 

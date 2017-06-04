@@ -6,11 +6,11 @@ function InputController() {
 
     this.player1Out = game.input.keyboard.addKey(Phaser.Keyboard.UP);
     this.player1In = game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
-    this.player1Fire = "";
+    this.player1Fire = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
 
     this.player2Out = game.input.keyboard.addKey(Phaser.Keyboard.W);
     this.player2In = game.input.keyboard.addKey(Phaser.Keyboard.S);
-    this.player2Fire = "";
+    this.player2Fire = game.input.keyboard.addKey(Phaser.Keyboard.F);
 
     // functions
 
@@ -20,7 +20,7 @@ function InputController() {
         //  Register the keys.
         
         //  Stop the following keys from propagating up to the browser
-        game.input.keyboard.addKeyCapture([ Phaser.Keyboard.UP, Phaser.Keyboard.DOWN, Phaser.Keyboard.W, Phaser.Keyboard.S ]);
+        game.input.keyboard.addKeyCapture([ Phaser.Keyboard.UP, Phaser.Keyboard.DOWN, Phaser.Keyboard.ENTER, Phaser.Keyboard.W, Phaser.Keyboard.S, Phaser.Keyboard.F ]);
         
     } // init()
 
@@ -38,6 +38,12 @@ function InputController() {
             // move the player towards the planet
             this.pivotPlayer(player1.playerSprite, "-");
         }
+        else if (this.player1Fire.isDown){
+
+            // fire a missile
+            player1.fireMissile();
+
+        } // if
 
         // check if player two is trying to move
         if (this.player2Out.isDown)
@@ -50,6 +56,12 @@ function InputController() {
             // move the player towards the planet
             this.pivotPlayer(player2.playerSprite, "-");
         }
+        else if (this.player2Fire.isDown){
+
+            // fire a missile
+            player2.fireMissile();
+
+        } // if
 
     } // checkForKeyPress()
 
