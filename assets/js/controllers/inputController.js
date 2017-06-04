@@ -4,11 +4,13 @@ function InputController() {
 
     // variables
 
-    this.player1Left = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
-    this.player1Right = game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
-    this.player2Left = game.input.keyboard.addKey(Phaser.Keyboard.A);
-    this.player2Right = game.input.keyboard.addKey(Phaser.Keyboard.D);
+    this.player1Out = game.input.keyboard.addKey(Phaser.Keyboard.UP);
+    this.player1In = game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
+    this.player1Fire = "";
 
+    this.player2Out = game.input.keyboard.addKey(Phaser.Keyboard.W);
+    this.player2In = game.input.keyboard.addKey(Phaser.Keyboard.S);
+    this.player2Fire = "";
 
     // functions
 
@@ -18,9 +20,38 @@ function InputController() {
         //  Register the keys.
         
         //  Stop the following keys from propagating up to the browser
-        game.input.keyboard.addKeyCapture([ Phaser.Keyboard.LEFT, Phaser.Keyboard.RIGHT, Phaser.Keyboard.D, Phaser.Keyboard.A ]);
+        game.input.keyboard.addKeyCapture([ Phaser.Keyboard.UP, Phaser.Keyboard.DOWN, Phaser.Keyboard.W, Phaser.Keyboard.S ]);
         
     } // init()
+
+    // check for key presses, pass in the two players
+    this.checkForKeyPress = function(player1, player2){
+
+        // check if player one is trying to move
+        if (this.player1Out.isDown)
+        {
+            // move the player away from the planet
+            this.pivotPlayer(player1, "+");
+        }
+        else if (this.player1In.isDown)
+        {
+            // move the player towards the planet
+            this.pivotPlayer(player1, "-");
+        }
+
+        // check if player two is trying to move
+        if (this.player2Out.isDown)
+        {
+            // move the player away from the planet
+            this.pivotPlayer(player2, "+");
+        }
+        else if (this.player2In.isDown)
+        {
+            // move the player towards the planet
+            this.pivotPlayer(player2, "-");
+        }
+
+    } // checkForKeyPress()
 
     // pass in the player and a string with the sign eg "+" or "-"
     this.pivotPlayer = function(player, sign){

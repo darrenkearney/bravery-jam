@@ -30,9 +30,6 @@ function createGame( view ) {
     // stop the planet from moving
     planet.body.immovable = true;
 
-    // sets up game to read key presses
-    cursors = game.input.keyboard.createCursorKeys();
-
     if (view === "battle") {
 
     //console.log('Creating...');
@@ -48,7 +45,8 @@ function createGame( view ) {
         // add player two to the game
         player2 = game.add.sprite(400, 300, 'ship');
         player2.anchor.setTo(0.5);      // anchor player
-        player2.pivot.x = -240;         // set the players pivot. (how far from it's position it is)
+        player2.angle = 180;            // rotate the player
+        player2.pivot.x = 240;          // set the players pivot. (how far from it's position it is)
 
         console.log('Created.');
 
