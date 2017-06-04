@@ -5,7 +5,10 @@ function Player(isPlayer1) {
     // variables
 
     this.playerSprite;
-    this.health = 2;     // can take two hits
+    this.health = 2;        // can take two hits
+    this.fireCoolDown = 3000; // 3 second cool down
+    this.canFire = true;
+    var timeout;
 
     // functions
 
@@ -34,19 +37,37 @@ function Player(isPlayer1) {
     // fire a missile, takes list of missiles as args
     this.fireMissile = function(){
 
-        // create the missile
-        var m = new Missile();
+        // check if player can fire missile
+        if(this.canFire){
 
-        // set the missiles rotation
-        m.setRotation(this.playerSprite.rotation)
+            // set canFire to false
+            this.canFire = false;
 
-        // set the missiles pivot
-        m.missileSprite.pivot = this.playerSprite.pivot;
+            // create the missile
+            var m = new Missile();
 
-        // add missile to the list of missiles
-        missiles.push(m);
+            // set the missiles rotation
+            m.setRotation(this.playerSprite.rotation)
+
+            // set the missiles pivot
+            m.setPivot(this.playerSprite.pivot);
+
+            // add missile to the list of missiles
+            missiles.push(m);
+
+            // set cool down timer
+            window.setTimeout(this.setCanFire(), 3000);
+
+        } // if
 
     } // fireMissile()
+
+    // set the canFire boolean
+    this.setCanFire = function(){
+
+        this.canFire = true;
+
+    } // setCanFire()
 
     // update the players x and y position
     this.updatePosition = function(x, y){

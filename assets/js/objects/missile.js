@@ -43,6 +43,14 @@ function Missile(){
 
     } // setRotation()
 
+    // set the missiles rotation
+    this.setPivot = function(newPivot){
+        
+        // set the missiles rotation value
+        this.missileSprite.pivot.x = newPivot.x;
+
+    } // setRotation()
+
     // get missiles x position
     this.getXpos = function(){
 
