@@ -13,6 +13,9 @@ function preloadAssets( view ) {
 function createGame( view ) {
 
     // Global Create
+
+    // enable the physics system
+    game.physics.startSystem(Phaser.Physics.ARCADE);
     
     // setup input controller
     inputController = new InputController();

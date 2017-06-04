@@ -14,10 +14,13 @@ function Missile(){
     this.init = function(){
 
         // set the missile sprite
-        this.missileSprite = game.add.sprite(400, 300, 'missile');
+        //this.missileSprite = game.add.sprite(400, 300, 'missile');
+        this.missileSprite = battleController.missileGroup.create(400, 300, 'missile');
 
         // add physics to missile
-        game.physics.arcade.enable(this.missileSprite);
+        game.physics.enable(this.missileSprite, Phaser.Physics.ARCADE);
+
+        this.missileSprite.body.collideWorldBounds = true;
 
     } // init()
 

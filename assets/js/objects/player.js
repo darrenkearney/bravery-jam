@@ -32,7 +32,8 @@ function Player(isPlayer1) {
         } // if     
 
         // add physics to player
-        game.physics.arcade.enable(this.playerSprite);
+        game.physics.enable(this.playerSprite, Phaser.Physics.ARCADE);
+        this.playerSprite.body.collideWorldBounds = true;
 
     } // init()
 
