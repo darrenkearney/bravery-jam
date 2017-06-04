@@ -30,16 +30,44 @@ function BattleController() {
         }); // foreach
 
         // check for collisions
-        game.physics.arcade.overlap(player1.playerSprite, this.missileGroup, collisionHandler, null, this);
+
+        // check if player 1 is launching a missile
+        if(player1.missileLaunching){
+            
+            // wait for missile to clear ship
+            game.time.events.add(200, () => { player1.missileLaunching = false; }, this, true);
+
+        } else { // if missile is 
+
+            game.physics.arcade.overlap(player1.playerSprite, this.missileGroup, collisionHandler, null, this);
+
+        } // if
+
+        // check if player 2 is launching a missile
+        if(player2.missileLaunching){
+            
+            // wait for missile to clear ship
+            game.time.events.add(200, () => { player2.missileLaunching = false; }, this, true);
+
+        } else { // if missile is 
+
+            game.physics.arcade.overlap(player2.playerSprite, this.missileGroup, collisionHandler, null, this);
+
+        } // if
+        
+        
         //game.physics.arcade.overlap(player2, this.missileGroup, collisionHandler, null, this);
 
 
     } // battleUpdate()
 
+    // when the player collides with a missile
     function collisionHandler (player, missile) {
 
-        //  If the player collides with a chilli it gets eaten :)
+        // remove the missile
         missile.kill();
+
+        // hurt the player
 
         console.log("HIT");
 

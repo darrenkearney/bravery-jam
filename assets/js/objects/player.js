@@ -7,6 +7,7 @@ function Player(isPlayer1) {
     this.playerSprite;
     this.health = 3;            // can take 3 hits
     this.fireCoolDown = 2000;   // in milliseconds
+    this.missileLaunching = false;
     var canFire = true;
 
     // functions
@@ -45,6 +46,9 @@ function Player(isPlayer1) {
 
             // set canFire to false
             setCanFire(false);
+
+            // missile is launching
+            this.missileLaunching = true;
 
             // create the missile
             var m = new Missile();
