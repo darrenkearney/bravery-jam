@@ -27,6 +27,9 @@ function createGame( view ) {
     // add physics to the planet
     game.physics.arcade.enable(planet);
 
+    // stop the planet from moving
+    planet.body.immovable = true;
+
     // sets up game to read key presses
     cursors = game.input.keyboard.createCursorKeys();
 
@@ -36,9 +39,6 @@ function createGame( view ) {
 
         // var logo = game.add.sprite(game.world.centerX, game.world.centerY, 'logo');
         //logo.anchor.setTo(0.5, 0.5);
-
-        // stop the planet from moving
-        planet.body.immovable = true;
 
         // add player one to the game
         player1 = game.add.sprite(400, 300, 'ship');
