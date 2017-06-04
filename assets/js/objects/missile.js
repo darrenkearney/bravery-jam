@@ -24,15 +24,6 @@ function Missile(){
 
     } // init()
 
-    // update the missile x and y position
-    this.updatePosition = function(x, y){
-
-        // update the missiles x and y position
-        this.missileSprite.x = x;
-        this.missileSprite.y = y;
-
-    } // updatePosition()
-
     // orbits the missile around the planet
     this.orbit = function(){
 
@@ -57,19 +48,6 @@ function Missile(){
 
     } // setRotation()
 
-    // get missiles x position
-    this.getXpos = function(){
-
-        return this.missileSprite.x;
-
-    } // getXpos()
-
-    // get missiles y position
-    this.getYpos = function(){
-
-        return this.missileSprite.y;
-        
-    } // getYpos()
 
     // initialise the missile
     this.init();

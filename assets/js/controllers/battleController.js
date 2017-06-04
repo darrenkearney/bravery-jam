@@ -35,7 +35,7 @@ function BattleController() {
         if(player1.missileLaunching){
             
             // wait for missile to clear ship
-            game.time.events.add(200, () => { player1.missileLaunching = false; }, this, true);
+            game.time.events.add(400, () => { player1.missileLaunching = false; }, this, true);
 
         } else { // if missile is 
 
@@ -47,7 +47,7 @@ function BattleController() {
         if(player2.missileLaunching){
             
             // wait for missile to clear ship
-            game.time.events.add(200, () => { player2.missileLaunching = false; }, this, true);
+            game.time.events.add(400, () => { player2.missileLaunching = false; }, this, true);
 
         } else { // if missile is 
 

@@ -76,15 +76,6 @@ function Player(isPlayer1) {
 
     } // setCanFire()
 
-    // update the players x and y position
-    this.updatePosition = function(x, y){
-
-        // update the players x and y position
-        this.playerSprite.x = x;
-        this.playerSprite.y = y;
-
-    } // updatePosition()
-
     // pivot the player. pass a string with the sign eg "+" or "-"
     this.pivot = function(sign){
 
@@ -110,20 +101,6 @@ function Player(isPlayer1) {
         this.playerSprite.rotation += 0.002;
 
     } // orbit()
-
-    // get players x position
-    this.getXpos = function(){
-
-        return this.playerSprite.x;
-
-    } // getXpos()
-
-    // get players y position
-    this.getYpos = function(){
-
-        return this.playerSprite.y;
-        
-    } // getYpos()
 
 
     // initialise the player
