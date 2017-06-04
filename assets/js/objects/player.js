@@ -77,6 +77,24 @@ function Player(isPlayer1) {
 
     } // updatePosition()
 
+    // pivot the player. pass a string with the sign eg "+" or "-"
+    this.pivot = function(sign){
+
+        if(sign == "+"){ // if positive
+
+            // increase pivot value
+            this.playerSprite.pivot.x += 0.5;
+
+        }
+        else // if negative 
+        {
+            // decrease pivot value
+            this.playerSprite.pivot.x -= 0.5;
+
+        } // if
+
+    } // pivot()
+
     // orbits the player around the planet
     this.orbit = function(){
 

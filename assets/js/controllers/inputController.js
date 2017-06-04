@@ -31,12 +31,12 @@ function InputController() {
         if (this.player1Out.isDown)
         {
             // move the player away from the planet
-            this.pivotPlayer(player1.playerSprite, "+");
+            player1.pivot("+");
         }
         else if (this.player1In.isDown)
         {
             // move the player towards the planet
-            this.pivotPlayer(player1.playerSprite, "-");
+            player1.pivot("-");
         }
         
         // check if player is trying to fire 
@@ -51,12 +51,12 @@ function InputController() {
         if (this.player2Out.isDown)
         {
             // move the player away from the planet
-            this.pivotPlayer(player2.playerSprite, "+");
+            player2.pivot("+");
         }
         else if (this.player2In.isDown)
         {
             // move the player towards the planet
-            this.pivotPlayer(player2.playerSprite, "-");
+            player2.pivot("-");
         }
         
         // check if player is trying to fire 
@@ -68,24 +68,6 @@ function InputController() {
         } // if
 
     } // checkForKeyPress()
-
-    // pass in the player and a string with the sign eg "+" or "-"
-    this.pivotPlayer = function(player, sign){
-
-        if(sign == "+"){ // if positive
-
-            // increase pivot value
-            player.pivot.x += 0.5;
-
-        }
-        else // if negative 
-        {
-            // decrease pivot value
-            player.pivot.x -= 0.5;
-
-        } // if
-
-    } // pivotPlayer()
 
     // initialise the controller
     this.init();

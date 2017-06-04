@@ -34,25 +34,10 @@ function update() {
 
     // switch checks view and uses appropriate update
     if ( view === 'battle' ) {
+
+        // update the battle
         battleUpdate();
-    }
-
-    // keep player 1 locked to planet
-    //player1.updatePosition(planet.x, planet.y);
-
-    // keep player 2 locked to planet
-    //player1.updatePosition(planet.x, planet.y);
-
-    // rotate the players (around the planet)
-    player1.orbit();
-    player2.orbit();
-
-    // orbit each missile
-    missiles.forEach(missile => {
-
-        // make missile orbit
-        missile.orbit();
-
-    }); // foreach
+        
+    } // if
 
 } // update()
