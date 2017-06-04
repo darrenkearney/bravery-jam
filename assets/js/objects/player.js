@@ -7,8 +7,8 @@ function Player(isPlayer1) {
     this.playerSprite;
     this.health = 2;        // can take two hits
     this.fireCoolDown = 3000; // 3 second cool down
-    this.canFire = true;
-    var timeout;
+    canFire = true;
+    this.timeout;
 
     // functions
 
@@ -38,7 +38,7 @@ function Player(isPlayer1) {
     this.fireMissile = function(){
 
         // check if player can fire missile
-        if(this.canFire){
+        if(canFire){
 
             // set canFire to false
             this.canFire = false;
@@ -56,16 +56,16 @@ function Player(isPlayer1) {
             missiles.push(m);
 
             // set cool down timer
-            window.setTimeout(this.setCanFire(), 3000);
+            window.setTimeout(setCanFire(), 3000);
 
         } // if
 
     } // fireMissile()
 
     // set the canFire boolean
-    this.setCanFire = function(){
+    function setCanFire(){
 
-        this.canFire = true;
+        canFire = true;
 
     } // setCanFire()
 

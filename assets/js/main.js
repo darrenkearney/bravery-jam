@@ -47,7 +47,7 @@ function update() {
     player1.orbit();
     player2.orbit();
 
-    // if missiles is not empty
+    // orbit each missile
     missiles.forEach(missile => {
 
         // make missile orbit
