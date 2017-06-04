@@ -38,7 +38,9 @@ function InputController() {
             // move the player towards the planet
             this.pivotPlayer(player1.playerSprite, "-");
         }
-        else if (this.player1Fire.isDown){
+        
+        // check if player is trying to fire 
+        if (this.player1Fire.isDown){
 
             // fire a missile
             player1.fireMissile();
@@ -56,7 +58,9 @@ function InputController() {
             // move the player towards the planet
             this.pivotPlayer(player2.playerSprite, "-");
         }
-        else if (this.player2Fire.isDown){
+        
+        // check if player is trying to fire 
+        if (this.player2Fire.isDown){
 
             // fire a missile
             player2.fireMissile();

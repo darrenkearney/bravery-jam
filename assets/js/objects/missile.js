@@ -5,7 +5,7 @@ function Missile(){
     // variables
 
     this.missileSprite;
-    this.speed = 0.05;
+    this.speed = 0.03;
 
 
     // functions
